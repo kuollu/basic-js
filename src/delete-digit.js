@@ -11,13 +11,15 @@
  *
  */
 function deleteDigit(n) {
-  let number = split(n.toString)
-  let minNumber = indexOf(MathMin(number))
-  
-
-
+  let number = n.toString().split('')
+  let allOptionsOfNumbers = []
+  for (let i = 0; i < number.length; i++) {
+    allOptionsOfNumbers.push(Number(number.filter((item, index) => index !== i).join('')))
+  }
+  console.log(allOptionsOfNumbers)
+  return allOptionsOfNumbers.reduce((previousValue, currentValue) => Math.max(previousValue, currentValue), 0);
 }
-
+deleteDigit(142)
 module.exports = {
   deleteDigit
 };
